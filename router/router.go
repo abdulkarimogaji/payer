@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/abdulkarimogaji/payer/modules/student"
 	"github.com/abdulkarimogaji/payer/utils"
 )
 
@@ -14,14 +15,18 @@ var header = "Live"
 
 func NewRouter() http.Handler {
 	mux := http.NewServeMux()
+	sh := student.NewStudentHandler()
+
+	mux.Handle("/api/student/", http.StripPrefix("/api/student", sh))
 	mux.HandleFunc("/api/", healthCheck)
 	mux.HandleFunc("/", homePage())
-	return mux
+	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
+	return utils.RecoverMiddleware(utils.LogMiddleware(mux))
 }
 
 func healthCheck(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/api/" || r.Method != http.MethodGet {
-		utils.JsonResponse(w, 404, "Resource Not Found", nil)
+		utils.JsonNotFoundResponse(w)
 		return
 	}
 	w.WriteHeader(http.StatusOK)
