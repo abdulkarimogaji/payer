@@ -21,7 +21,7 @@ func NewRouter() http.Handler {
 	mux.HandleFunc("/api/", healthCheck)
 	mux.HandleFunc("/", homePage())
 	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
-	return utils.RecoverMiddleware(utils.LogMiddleware(mux))
+	return utils.RecoverMiddleware(utils.LogMiddleware(utils.CORSMiddleware(mux)))
 }
 
 func healthCheck(w http.ResponseWriter, r *http.Request) {
