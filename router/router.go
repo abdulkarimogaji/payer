@@ -1,17 +1,13 @@
 package router
 
 import (
-	"bytes"
-	"fmt"
 	"html/template"
-	"io"
 	"net/http"
 
 	"github.com/abdulkarimogaji/payer/modules/student"
 	"github.com/abdulkarimogaji/payer/utils"
+	"github.com/abdulkarimogaji/payer/views"
 )
-
-var header = "Live"
 
 func NewRouter() http.Handler {
 	mux := http.NewServeMux()
@@ -21,6 +17,7 @@ func NewRouter() http.Handler {
 	mux.HandleFunc("/api/", healthCheck)
 	mux.HandleFunc("/", homePage())
 	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
+	// mux.Handle("/views/", http.StripPrefix("/views/", http.FileServer(http.Dir("./views"))))
 	return utils.RecoverMiddleware(utils.LogMiddleware(utils.CORSMiddleware(mux)))
 }
 
@@ -34,37 +31,19 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 }
 
 func homePage() http.HandlerFunc {
-	files := templateLayout("./views/index.gohtml")
-	template := template.Must(template.New("index").Funcs(defaultFuncs).ParseFiles(files...))
+	tmpl := template.Must(template.New("").Parse(views.Home))
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path != "/" || r.Method != http.MethodGet {
 			notFoundPage(w, r)
 			return
 		}
-		var buf bytes.Buffer
-		if err := template.ExecuteTemplate(&buf, "base", map[string]interface{}{
-			"Header": header,
-		}); err != nil {
-			fmt.Printf("ERR: %v\n", err)
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		w.WriteHeader(http.StatusOK)
-		io.Copy(w, &buf)
+		tmpl.Execute(w, "")
 	}
 }
 
 var notFoundPage = func() http.HandlerFunc {
-	files := templateLayout("./views/_notFound.gohtml")
-	template := template.Must(template.New("index").Funcs(defaultFuncs).ParseFiles(files...))
+	tmpl := template.Must(template.New("").Parse(views.Not_found))
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		var buf bytes.Buffer
-		if err := template.ExecuteTemplate(&buf, "base", nil); err != nil {
-			fmt.Printf("ERR: %v\n", err)
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		w.WriteHeader(http.StatusOK)
-		io.Copy(w, &buf)
+		tmpl.Execute(w, "")
 	})
 }()
