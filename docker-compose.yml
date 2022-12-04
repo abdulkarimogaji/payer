@@ -21,4 +21,4 @@ services:
       MYSQL_DATABASE: markdown_dev
     container_name: payer-db
     ports:
-      - 33066:3306
+      - 3306:3306
