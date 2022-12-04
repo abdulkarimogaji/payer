@@ -15,7 +15,7 @@ import (
 
 func NewRouter() http.Handler {
 	// connect db
-	db, err := sql.Open("mysql", "markdown_user:markdown_password@tcp(localhost:3306)/markdown_dev?parseTime=true")
+	db, err := sql.Open("mysql", "root:markdown_password@tcp(database:33066)/markdown_dev?parseTime=true")
 
 	if err != nil {
 		log.Fatal(err)
