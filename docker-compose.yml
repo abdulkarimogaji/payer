@@ -22,3 +22,12 @@ services:
     container_name: payer-db
     ports:
       - 3306:3306
+
+  frontend:
+    container_name: payer-frontend
+    build:
+      context: /frontend
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+     
