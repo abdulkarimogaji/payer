@@ -1,23 +1,40 @@
 package router
 
 import (
+	"database/sql"
 	"html/template"
+	"log"
 	"net/http"
 
-	"github.com/abdulkarimogaji/payer/modules/student"
+	"github.com/abdulkarimogaji/payer/modules/user"
+	"github.com/abdulkarimogaji/payer/queries"
 	"github.com/abdulkarimogaji/payer/utils"
 	"github.com/abdulkarimogaji/payer/views"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func NewRouter() http.Handler {
-	mux := http.NewServeMux()
-	sh := student.NewStudentHandler()
+	// connect db
+	db, err := sql.Open("mysql", "markdown_user:markdown_password@tcp(localhost:3306)/markdown_dev?parseTime=true")
 
-	mux.Handle("/api/student/", http.StripPrefix("/api/student", sh))
+	if err != nil {
+		log.Fatal(err)
+
+	}
+
+	_, err = db.Exec(queries.CreateTableUser)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	mux := http.NewServeMux()
+	user := user.NewUserHandler(db)
+
+	mux.Handle("/api/user/", http.StripPrefix("/api/user", user))
 	mux.HandleFunc("/api/", healthCheck)
 	mux.HandleFunc("/", homePage())
 	mux.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("./public"))))
-	// mux.Handle("/views/", http.StripPrefix("/views/", http.FileServer(http.Dir("./views"))))
 	return utils.RecoverMiddleware(utils.LogMiddleware(utils.CORSMiddleware(mux)))
 }
 
