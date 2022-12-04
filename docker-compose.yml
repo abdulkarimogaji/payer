@@ -26,7 +26,7 @@ services:
   frontend:
     container_name: payer-frontend
     build:
-      context: /frontend
+      context: ./frontend
       dockerfile: Dockerfile
     ports:
       - 80:80
