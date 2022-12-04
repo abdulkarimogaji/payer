@@ -2,7 +2,6 @@ package utils
 
 import (
 	"encoding/json"
-	"io"
 	"net/http"
 )
 
@@ -12,12 +11,14 @@ type jsonResp struct {
 	Data    any    `json:"data"`
 }
 
-func JsonResponse(w io.Writer, status int, message string, data any) {
+func JsonResponse(w http.ResponseWriter, status int, message string, data any) {
+	w.Header().Set("Content-Type", "application/json")
 	resp := jsonResp{status, message, data}
 	encoder := json.NewEncoder(w)
 	encoder.Encode(resp)
 }
 
-func JsonNotFoundResponse(w io.Writer) {
+func JsonNotFoundResponse(w http.ResponseWriter) {
+	w.Header().Set("Content-Type", "application/json")
 	JsonResponse(w, http.StatusNotFound, "Resource Not Found", nil)
 }

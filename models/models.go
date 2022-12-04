@@ -2,49 +2,20 @@ package models
 
 import "time"
 
-type Student struct {
-	Id        int
-	FullName  string
-	Guardian  Guardian
-	School    School
-	Email     string
-	Phone     string
-	createdAt time.Time
-	updatedAt time.Time
+type User struct {
+	Id        int64     `json:"id,omitempty"`
+	FirstName string    `json:"firstName,omitempty"`
+	LastName  string    `json:"lastName,omitempty"`
+	Email     string    `json:"email,omitempty"`
+	Password  string    `json:"password,omitempty"`
+	CreatedAt time.Time `json:"createdAt,omitempty"`
+	UpdatedAt time.Time `json:"updatedAt,omitempty"`
 }
 
-type Guardian struct {
+type MarkdownItem struct {
 	Id        int
-	FullName  string
-	Email     string
-	Phone     string
-	createdAt time.Time
-	updatedAt time.Time
-}
-
-type School struct {
-	Id        int
-	Name      string
-	Location  string
-	Email     string
-	Phone     string
-	createdAt time.Time
-	updatedAt time.Time
-}
-
-type PurchaseItem struct {
-	Id        int
-	School    School
-	Price     int
-	Currency  string
-	createdAt time.Time
-	updatedAt time.Time
-}
-
-type Purchase struct {
-	PurchaseItem PurchaseItem
-	Guardian     Guardian
-	Student      Student
-	createdAt    time.Time
-	updatedAt    time.Time
+	Title     string
+	CoverImg  string
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }
