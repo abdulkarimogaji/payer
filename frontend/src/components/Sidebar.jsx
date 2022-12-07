@@ -14,5 +14,3 @@ const Sidebar = () => {
     )
 }
 export default Sidebar
-
-// className={sideBar ? '' : 'hidden transition ease-in-out delay-1000'}
