@@ -22,7 +22,7 @@ const Sidebar = () => {
         }>
             <h2 className="pl-5 py-5 text-[#c1c4cb] text-base font-semibold capitalize leading-5 tracking-widest">MY DOCUMENTS</h2>
             <div className="grid  mx-5 h-[80vh]">
-                <div><button className="flex justify-center items-center bg-[#f06820] py-1.5 rounded-md text-white h-auto w-full"><FiPlus size={17} /> New Document</button></div>
+                <div><button className="flex justify-center items-center bg-[#f06820] hover:bg-[#ff5a01] py-1.5 rounded-md text-white h-auto w-full"><FiPlus size={17} /> New Document</button></div>
 
 
                 <div className="flex self-end items-center">
