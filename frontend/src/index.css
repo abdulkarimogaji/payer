@@ -1,41 +1,29 @@
-.dark {
-  --color-bg-primary: #2d3748;
-  --color-bg-secondary: #283141;
-  --color-text-primary: #f7fafc;
-  --color-text-secondary: #e2e8f0;
-  --color-text-accent: #81e6d9;
-}
-
-.light {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #edf2f7;
-  --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-accent: #2b6cb0;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.fff{
-  align-self: flex-end;
+@layer base {
+  h1 {
+    @apply text-3xl font-bold text-gray-800 my-4;
+  }
+  h2 {
+    @apply font-bold text-gray-800 my-4 text-2xl;
+  }
+  h3 {
+    @apply font-bold text-gray-800 my-4 text-xl;
+  }
+  h4 {
+    @apply font-bold text-gray-800 my-4 text-lg;
+  }
+  h5 {
+    @apply font-bold text-gray-800 my-4 text-base;
+  }
+  
+  p {
+    @apply  text-gray-800 mb-1 text-base;
+  }  
 }
 
-h1 {
-    font-size: 2rem;
-    /* background-color: #afb2b4; */
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-.scroll-up {
-    overflow-y: scroll;
-    display: block;
-    height: 80vh;
-}
 
 #dark {
     background: #000;

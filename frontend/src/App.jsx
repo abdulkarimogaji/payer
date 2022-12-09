@@ -5,6 +5,7 @@ export const ThemeContext = createContext(null)
 
 const App = () => {
 
+  const [preview, setPreview] = useState(false)
   const [sideBar, setSideBar] = useState(false)
   const [theme, setTheme] = useState("dark")
   const toggleTheme = () => {
@@ -17,7 +18,9 @@ const App = () => {
         theme,
         toggleTheme,
         sideBar,
-        setSideBar
+        setSideBar,
+        preview,
+        setPreview
       }}>
       <Home />
     </ThemeContext.Provider>
