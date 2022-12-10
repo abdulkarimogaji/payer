@@ -1,0 +1,106 @@
+/* 
+    h1 {
+      @apply text-4xl font-bold text-gray-800 my-4;
+    }
+    h2 {
+      @apply font-bold text-gray-800 my-4 text-3xl;
+    }
+    h3 {
+      @apply font-bold text-gray-800 my-4 text-2xl;
+    }
+    h4 {
+      @apply font-bold text-gray-800 my-4 text-xl;
+    }
+    h5 {
+      @apply font-bold text-gray-800 my-4 text-lg;
+    }
+    h6 {
+      @apply font-bold text-gray-800 my-4 text-base;
+    }
+    
+    p {
+      @apply  text-gray-800 mb-1 text-base;
+    }
+    
+    ol {
+      list-style: decimal;
+      margin-left: 50px;
+      margin-bottom: 20px;
+    }
+  
+    ul {
+      list-style: none;
+      position: relative;
+      margin-left: 50px;
+      margin-bottom: 20px;
+    }
+  
+    ul li::before {
+      content: "•";
+      font-family: Roboto Slab;
+      color: rgb(239, 102, 67);
+      position: absolute;
+      font-weight: 900;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  
+    blockquote {
+      border-left: 4px solid rgb(239, 102, 67);
+      background-color: rgb(43, 45, 49);
+    padding: 24px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    }
+    blockquote p {
+      color: #fff;
+    } */
+    
+.reactMarkDownLight {
+    background: #fff;
+}
+
+.reactMarkDownDark {
+  min-height: 100%;
+    @apply py-2 pl-5 pr-10; 
+}
+
+.reactMarkDownDark {
+  /* background-color:  #151619; */
+  /* @apply overflow-hidden overflow-y-scroll overflow-x-scroll break-words; */
+  max-height: 80vh;
+}
+
+.reactMarkDownDark h1 {
+  color: rgb(255, 255, 255);
+  @apply text-4xl font-bold my-4;
+}
+.reactMarkDownDark h2 {
+  color: rgb(255, 255, 255);
+  @apply font-bold my-4 text-3xl;
+}
+.reactMarkDownDark h3 {
+  color: rgb(255, 255, 255);
+  @apply font-bold my-4 text-2xl;
+}
+.reactMarkDownDark h4 {
+  color: rgb(255, 255, 255);
+  @apply font-bold my-4 text-xl;
+}
+.reactMarkDownDark h5 {
+  color: rgb(255, 255, 255);
+  @apply font-bold my-4 text-lg;
+}
+.reactMarkDownDark h6 {
+  color: rgb(255, 255, 255);
+  @apply font-bold my-4 text-base;
+}
+
+.reactMarkDownDark p {
+  color: rgb(193, 196, 203);
+
+  @apply  mb-1 text-base;
+}
