@@ -13,9 +13,9 @@ const Header = () => {
         setSideBar(!sideBar)
     }
     return (
-        <div className="true-bg flex w-full">
-            <div className="bg-[#35393f] hover:bg-[#f06820] py-3 px-3">
-                <button className="" onClick={handleClick}>{sideBar ? <TfiClose className="text-white" size={40} /> : <AiOutlineMenu className="text-white" size={40} />}</button>
+        <div className="bg-[#0e0d0dde] flex w-full">
+            <div className="">
+                <button className="hover:bg-[#f06820] py-3 px-3 bg-[#35393f]" onClick={handleClick}>{sideBar ? <TfiClose className="text-white" size={40} /> : <AiOutlineMenu className="text-white" size={40} />}</button>
             </div>
 
             {/* header */}
@@ -25,7 +25,7 @@ const Header = () => {
             <div className="flex items-center ml-10">
                 <AiOutlineFile size={20} className="text-white mr-2" />
                 <div className="flex flex-col">
-                    <label htmlFor="doc_name" className="text-[#7c8187] text-sm mb-.5 pl-2">Document name</label>
+                    <label htmlFor="doc_name" className="text-[#fff] text-sm mb-.5 pl-2">Document name</label>
                     <input type="text" className="text-white rounded px-2 bg-inherit outline-none focus:ring-1 w-[150px] hover:ring-1"
                         placeholder="welcome.md"
                         id="doc_name" />
