@@ -13,7 +13,7 @@ const Header = () => {
         setSideBar(!sideBar)
     }
     return (
-        <div className="bg-[#0f0f0fde] flex w-full">
+        <div className="true-bg flex w-full">
             <div className="bg-[#35393f] hover:bg-[#f06820] py-3 px-3">
                 <button className="" onClick={handleClick}>{sideBar ? <TfiClose className="text-white" size={40} /> : <AiOutlineMenu className="text-white" size={40} />}</button>
             </div>
