@@ -1,7 +1,4 @@
 import { createContext, useContext, useState } from 'react'
-import ReactMarkdown from 'react-markdown'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { ThemeContext } from '../App'
 import Header from './Header'
 import Sidebar from './Sidebar'
@@ -16,7 +13,7 @@ const Home = () => {
     const [input, setInput] = useState(`# Hello \n\ \n\This is markdown`)
 
     return (
-        <div className='flex'>
+        <div className={theme === 'dark' ? 'bg-[#151619] flex' : 'flex'}>
             {/* Sidebar */}
             <div>
                 <Sidebar />
@@ -24,6 +21,7 @@ const Home = () => {
 
             <div className={sideBar ? 'ml-[250px] w-full ease-in-out duration-300 h-screen' : 'w-full ease-in-out duration-300 h-screen'}>
                 <Header />
+
                 <div className='flex'>
 
                     {/* Markdown text area */}
@@ -34,7 +32,7 @@ const Home = () => {
                             placeholder='Text text'
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
-                            className='px-5 resize-none overflow-y-scroll w-full h-[80vh] max-h-screen p-5 text-[14px] outline-none break-words'></textarea>
+                            className={`px-5 resize-none overflow-y-scroll w-full h-[80vh] max-h-screen p-5 text-[14px] outline-none break-words ${theme === 'dark' && 'bg-[#151619] text-white'}`}></textarea>
                     </div>
 
                     {/* Rendered JSX */}
