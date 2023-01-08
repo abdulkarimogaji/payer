@@ -1,77 +1,10 @@
-/* 
-    h1 {
-      @apply text-4xl font-bold text-gray-800 my-4;
-    }
-    h2 {
-      @apply font-bold text-gray-800 my-4 text-3xl;
-    }
-    h3 {
-      @apply font-bold text-gray-800 my-4 text-2xl;
-    }
-    h4 {
-      @apply font-bold text-gray-800 my-4 text-xl;
-    }
-    h5 {
-      @apply font-bold text-gray-800 my-4 text-lg;
-    }
-    h6 {
-      @apply font-bold text-gray-800 my-4 text-base;
-    }
-    
-    p {
-      @apply  text-gray-800 mb-1 text-base;
-    }
-    
-    ol {
-      list-style: decimal;
-      margin-left: 50px;
-      margin-bottom: 20px;
-    }
-  
-    ul {
-      list-style: none;
-      position: relative;
-      margin-left: 50px;
-      margin-bottom: 20px;
-    }
-  
-    ul li::before {
-      content: "•";
-      font-family: Roboto Slab;
-      color: rgb(239, 102, 67);
-      position: absolute;
-      font-weight: 900;
-      display: inline-block;
-      width: 1em;
-      margin-left: -1em;
-    }
-  
-    blockquote {
-      border-left: 4px solid rgb(239, 102, 67);
-      background-color: rgb(43, 45, 49);
-    padding: 24px;
-    margin-left: 0px;
-    margin-right: 0px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    }
-    blockquote p {
-      color: #fff;
-    } */
-    
-.reactMarkDownLight {
+ .reactMarkDownLight {
     background: #fff;
 }
 
-.reactMarkDownDark {
-  min-height: 100%;
-    @apply py-2 pl-5 pr-10; 
-}
-
-.reactMarkDownDark {
-  /* background-color:  #151619; */
-  /* @apply overflow-hidden overflow-y-scroll overflow-x-scroll break-words; */
-  max-height: 80vh;
+.reactMarkDownDark, .reactMarkDownLight {
+    @apply py-2 pl-5 pr-10;
+    font-family: 'Roboto Slab', serif;
 }
 
 .reactMarkDownDark h1 {
@@ -98,9 +31,163 @@
   color: rgb(255, 255, 255);
   @apply font-bold my-4 text-base;
 }
+.reactMarkDownDark ol {
+  list-style: decimal;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  color: rgb(193, 196, 203);
+}
+.reactMarkDownDark ul {
+  list-style: none;
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  color: rgb(193, 196, 203);
+}
+.reactMarkDownDark  ul li::before {
+  content: "•";
+  font-family: Roboto Slab;
+  color: rgb(239, 102, 67);
+  position: absolute;
+  font-weight: 900;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.reactMarkDownDark blockquote {
+  border-left: 4px solid rgb(239, 102, 67);
+  background-color: rgb(43, 45, 49);
+padding: 24px;
+margin-left: 0px;
+margin-right: 0px;
+border-radius: 4px;
+margin-bottom: 20px;
+}
+.reactMarkDownDark blockquote p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.reactMarkDownDark a {
+  text-decoration: underline;
+}
+
+.reactMarkDownDark pre {
+  overflow-x: auto;
+  background-color: rgb(43, 45, 49);
+padding: 24px;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 0px;
+margin-right: 0px;
+border-radius: 4px;
+}
 
 .reactMarkDownDark p {
   color: rgb(193, 196, 203);
-
   @apply  mb-1 text-base;
+}
+
+.reactMarkDownDark code {
+  color: rgb(193, 196, 203);
+}
+
+
+/* Light mode settings */
+
+.reactMarkDownLight h1 {
+  color: rgb(53, 57, 63);
+  @apply text-4xl font-bold my-4;
+}
+.reactMarkDownLight h2 {
+  color: rgb(53, 57, 63);
+  @apply font-bold my-4 text-3xl;
+}
+.reactMarkDownLight h3 {
+  color: rgb(53, 57, 63);
+  @apply font-bold my-4 text-2xl;
+}
+.reactMarkDownLight h4 {
+  color: rgb(53, 57, 63);
+  @apply font-bold my-4 text-xl;
+}
+.reactMarkDownLight h5 {
+  color: rgb(53, 57, 63);
+  @apply font-bold my-4 text-lg;
+}
+.reactMarkDownLight h6 {
+  color: rgb(53, 57, 63);
+  @apply font-bold my-4 text-base;
+}
+
+.reactMarkDownLight p {
+  color: rgb(102, 105, 107);
+  @apply  mb-1 text-base;
+}
+
+.reactMarkDownLight li {
+  color: rgb(102, 105, 107);
+  @apply  mb-1 text-base;
+}
+
+.reactMarkDownLight ol {
+  list-style: decimal;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  color: rgb(193, 196, 203);
+}
+.reactMarkDownLight ul {
+  list-style: none;
+  position: relative;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  color: rgb(193, 196, 203);
+}
+.reactMarkDownLight  ul li::before {
+  content: "•";
+  font-family: Roboto Slab;
+  color: rgb(239, 102, 67);
+  position: absolute;
+  font-weight: 900;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.reactMarkDownLight blockquote {
+  border-left: 4px solid rgb(239, 102, 67);
+  background-color: rgb(91, 92, 94);
+padding: 24px;
+margin-left: 0px;
+margin-right: 0px;
+border-radius: 4px;
+margin-bottom: 20px;
+}
+.reactMarkDownLight blockquote p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.reactMarkDownLight a {
+  text-decoration: underline;
+}
+
+.reactMarkDownLight pre {
+  overflow-x: auto;
+  background-color: rgb(91, 92, 94);
+padding: 24px;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 0px;
+margin-right: 0px;
+border-radius: 4px;
+}
+
+.reactMarkDownLight code {
+  color: rgb(63, 64, 66);
+}
+
+.reactMarkDownLight pre code {
+  color: #fff;
 }
